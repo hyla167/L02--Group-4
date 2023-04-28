@@ -15,6 +15,7 @@ const Task = require('./model/Task')
 
 // Connect DB
 const db = require('./config/db')
+db.connect();
 
 // body-parser is used to pass the incoming request in the middleware
 app.use(bodyparser.json())
@@ -52,8 +53,6 @@ app.use(session({
 }))
 
 route(app);
-
-db.connect();
 
 app.listen(port, () => {
     console.log(`Listening at http://localhost:${port}`)
